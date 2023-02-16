@@ -1,10 +1,16 @@
 #include <iostream>
 
+int n{0}; // variable global NO LO HAGAN
+//const int n{0}; // constante global SI LO PUEDEN HACER
+
+void fun(void);
+
 int main(void) {
-  int n{0};
 
   std::cout << "Enter a number: ";
   std::cin >> n;
+
+  fun();
 
   if (n > 10) {
     std::cout << n << " is greater than 10"
@@ -17,4 +23,10 @@ int main(void) {
   }
 
   return 0;
+}
+
+void fun()
+{
+  //int n{0}; // variable local
+  n = -1;
 }

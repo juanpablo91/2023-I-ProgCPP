@@ -1,0 +1,54 @@
+N -> cual es la pareja que quiero
+
+// refinamiento: 3
+const int N = 3;
+int contador = 0
+for(int p = 2;  ; p++) {
+	flag isprime = true;
+  for(int ii = 2; ii*ii <= p; ++ii) {
+    if (p%ii == 0) {
+      isprime = false;
+      break;
+    }
+  }
+  if (isprime == true) {
+  	  isprime = true;
+    for(int ii = 2; ii*ii <= p+6; ++ii) {
+      if ((p+6)%ii == 0) {
+        isprime = false;
+        break;
+      }
+      if (isprime == true) {
+        contador +=1
+        if (contador == N) {
+          std::cout << "(" << p << ", " << p+6 << ")\n";
+          break;
+        }
+      }
+   }
+}
+
+
+
+// refinamiento: 2
+const int N = 3;
+int contador = 0
+for(int p = 2;  ; p++) {
+  if p es primo
+    si p+6 tambien es primo
+      contador +=1
+      if contador == N
+        print
+        break
+}
+
+// refinamiento: 1
+contador = 0
+barrer sobre los numeros naturales
+por cada uno de esos numeros n
+  si n es primo
+    si n+6 tambien es primo
+      contador +=1
+      si contador == N
+        print
+        break

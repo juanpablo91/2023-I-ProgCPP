@@ -11,13 +11,13 @@ dependencies:
   - cmake
   - cxx-compiler
   - cpp-argparse
-  # - python
-  # - numpy
-  # - matplotlib
-  # - scipy
-  # - seaborn
-  # - jupyterlab
-  # - jupyterlab-lsp
+  - python
+  - numpy
+  - matplotlib
+  - scipy
+  - seaborn
+  - jupyterlab
+  - jupyterlab-lsp
   # - python-lsp-server
   # - ipywidgets
   # - jupyter_contrib_nbextensions

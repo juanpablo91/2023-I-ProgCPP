@@ -1,9 +1,6 @@
-#include <cmath>
+// implementaciones
 
-using fptr=double(double);
-
-double simpson(fptr func, const double a, const double b, const int npoint);
-
+#include "integration.h"
 
 double simpson(fptr func, const double a, const double b, const int npoint)
 {
@@ -33,4 +30,14 @@ double simpson(fptr func, const double a, const double b, const int npoint)
   result += 4*sum;
 
   return result*h/3;
+}
+
+
+double richardson(algptr alg, fptr func, const double a, const double b,
+                  const int npoint, int order)
+{
+  double val1 = alg(func, a, b, npoint); // h
+  double val2 = alg(func, a, b, 2*npoint); // h/2
+  double aux = std::pow(2, order);
+  return (aux*val2 - val1)/(aux-1);
 }

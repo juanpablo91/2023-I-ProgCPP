@@ -33,7 +33,7 @@ double simpson(fptr func, const double a, const double b, const int npoint)
   }
   double sum = 0, result = func(a) + func(b);
   double x;
-  const double h = (b-a)/npoint;
+  const double h = (b-a)/nlocal;
 
   // first sum
   sum = 0;

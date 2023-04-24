@@ -22,3 +22,14 @@ void matmul_naive(const std::vector<double> & A,
         }
     }
 }
+
+
+double compute_trace(const std::vector<double> & A,
+                     const int nrows, const int ncols){
+    assert(ncols == nrows);
+    double result = 0.0;
+    for (int ii = 0; ii < ncols; ii++){
+        result += A[ii*nrows + ii];
+    }
+    return result;
+}

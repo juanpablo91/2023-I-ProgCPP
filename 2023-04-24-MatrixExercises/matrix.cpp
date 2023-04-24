@@ -11,6 +11,16 @@ void print_matrix(const std::vector<double> & M, int nrows, int ncols){
     }
     std::cout << "\n";
 }
+void fill_matrix_random(std::vector<double> & M, const int nrows, const int ncols, const int seed){
+    std::mt19937 gen(seed);
+    std::uniform_real_distribution<> dis(-1, 1);
+    for (int ii = 0; ii < nrows; ii++){
+        for (int jj = 0; jj < ncols; jj++){
+            M[ii*ncols + jj] = dis(gen);
+        }
+    }
+    
+}
 // computes C = AB
 void matmul_naive(const std::vector<double> & A,
                   const std::vector<double> & B,

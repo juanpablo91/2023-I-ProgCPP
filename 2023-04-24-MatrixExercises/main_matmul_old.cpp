@@ -1,18 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <string>
-#include "matrix.h"
 
 int main(int argc, char **argv) {
-  if (argc != 3) {
-      std::cerr << "Error. Usage:\n"
-                << argv[0] << " M N\n"
-                << "M : Rows\n"
-                << "N : Columns\n";
-      return 1;
-  }
-  const int M = std::stoi(argv[1]);
-  const int N = std::stoi(argv[2]);
+  // TODO: later read this from the cmd line
+  const int M = 3;
+  const int N = 4;
 
   // allocate memory for the matrix
   std::vector<double> A(M*N), B(N*M), C(M*M);
@@ -32,12 +24,22 @@ int main(int argc, char **argv) {
 
   // multiply the matrices
   // TODO: Make this a function
-  matmul_naive(A, B, M, N, C);
+  for (int ii = 0; ii < M; ++ii){
+    for (int jj = 0; jj < M; ++jj) {
+      C[ii*M + jj] = 0;
+      for (int kk = 0; kk < N; ++kk) {
+        C[ii*M + jj] += A[ii*N + kk] * B[kk*M + jj];
+      }
+    } 
+  }
 
   // print the result
-  print_matrix(A, M, N);
-  print_matrix(B, N, M);
-  print_matrix(C, M, M);
-
+  for (int i = 0; i < M; ++i) {
+    for (int j = 0; j < M; ++j) {
+      std::cout << C[i*M + j] << " ";
+    }
+    std::cout << std::endl;
+  }
+  
   return 0;
 }

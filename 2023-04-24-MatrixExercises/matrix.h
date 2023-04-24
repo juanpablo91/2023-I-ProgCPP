@@ -10,3 +10,5 @@ void matmul_naive(const std::vector<double> & A,
                   std::vector<double> & C);
 double compute_trace(const std::vector<double> & A,
                      const int nrows, const int ncols);
+void fill_hilbert(std::vector<double> & A,
+                  const int nrows, const int ncols);
